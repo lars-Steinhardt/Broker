@@ -1,0 +1,327 @@
+{
+	"info": {
+		"_postman_id": "fa3d79ec-5c31-4d15-b00d-a6420735edd3",
+		"name": "BrokerCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "broker/list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/broker/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"broker",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fond/list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/fond/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"fond",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "aktien/list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/aktien/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"aktien",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "broker/read?id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/broker/read?id=06fc334d-7b02-434f-9222-6544d30d8832",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"broker",
+						"read"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "06fc334d-7b02-434f-9222-6544d30d8832"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fond/read?id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/fond/read?id=3247c340-c712-402e-b400-0a23a9368c97",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"fond",
+						"read"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3247c340-c712-402e-b400-0a23a9368c97"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "aktien/read?id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/aktien/read?id=3247c340-c712-402e-b400-0a23a9368c97",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"aktien",
+						"read"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3247c340-c712-402e-b400-0a23a9368c97"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "broker/read?id \"none\"",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/broker/read?id=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"broker",
+						"read"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fond/read?id \"none\"",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/fond/read?id=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"fond",
+						"read"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "aktien/read?id \"none\"",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/aktien/read?id=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"aktien",
+						"read"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "broker/read?id \"invalid\"",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/broker/read?id=06fc3434d-7b34502-434f-74522-6544d30d8832",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"broker",
+						"read"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "06fc3434d-7b34502-434f-74522-6544d30d8832"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fond/read?id \"invalid\"",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/fond/read?id=3247c340-c7sdf23412-402e-b400-0a23a9368c97",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"fond",
+						"read"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3247c340-c7sdf23412-402e-b400-0a23a9368c97"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "aktien/read?id \"invalid\"",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/aktien/read?id=3247c340-c712-402e-b400-0a23a9368c97",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"aktien",
+						"read"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3247c340-c712-402e-b400-0a23a9368c97"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

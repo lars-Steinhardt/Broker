@@ -1,7 +1,7 @@
 package ch.bzz.broker.model;
 
 /**
- * a book publisher
+ * a Broker
  */
 public class Broker {
     private String brokerID;

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * a book in the bookshelf
+ * a Fond in Broker
  */
 public class Fond {
     @JsonIgnore

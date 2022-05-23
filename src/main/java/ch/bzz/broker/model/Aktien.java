@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.math.BigDecimal;
 
 /**
- * a book in the bookshelf
+ * a Aktien in the Broker
  */
 public class Aktien {
     @JsonIgnore

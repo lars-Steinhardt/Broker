@@ -46,17 +46,17 @@ public class DataHandler {
 
 
     /**
-     * reads all books
-     * @return list of books
+     * reads all fonds
+     * @return list of fonds
      */
     public List<Fond> readAllFonds() {
         return getFondList();
     }
 
     /**
-     * reads a book by its uuid
+     * reads a book by its id
      * @param fondID
-     * @return the Book (null=not found)
+     * @return the book (null=not found)
      */
     public Fond readFondByID(String fondID) {
         Fond fond = null;
@@ -77,9 +77,9 @@ public class DataHandler {
     }
 
     /**
-     * reads a book by its uuid
+     * reads a aktien by its id
      * @param aktienID
-     * @return the Book (null=not found)
+     * @return the Aktien (null=not found)
      */
     public Aktien readAktienByID(String aktienID) {
         Aktien aktien = null;
@@ -92,8 +92,8 @@ public class DataHandler {
     }
 
     /**
-     * reads all Publishers
-     * @return list of publishers
+     * reads all Brokers
+     * @return list of Brokers
      */
     public List<Broker> readAllBrokers() {
 
@@ -101,9 +101,9 @@ public class DataHandler {
     }
 
     /**
-     * reads a publisher by its uuid
+     * reads a Broker by its id
      * @param brokerID
-     * @return the Publisher (null=not found)
+     * @return the Broker (null=not found)
      */
     public Broker readBrokerByID(String brokerID) {
         Broker broker = null;
@@ -116,7 +116,7 @@ public class DataHandler {
     }
 
     /**
-     * reads the books from the JSON-file
+     * reads the fonds from the JSON-file
      */
     private void readFondJSON() {
         try {
@@ -135,7 +135,7 @@ public class DataHandler {
     }
 
     /**
-     * reads the "aktien" from the JSON-file
+     * reads the aktien from the JSON-file
      */
     private void readAktienJSON() {
         try {
@@ -154,7 +154,7 @@ public class DataHandler {
     }
 
     /**
-     * reads the publishers from the JSON-file
+     * reads the brokers from the JSON-file
      */
     private void readBrokerJSON() {
         try {
@@ -173,16 +173,16 @@ public class DataHandler {
         }
     }
     /**
-     * gets bookList
+     * gets fondList
      *
-     * @return value of bookList
+     * @return value of fondList
      */
     private List<Fond> getFondList() {
         return fondList;
     }
 
     /**
-     * sets bookList
+     * sets fondList
      *
      * @param fondList the value to set
      */
@@ -191,16 +191,16 @@ public class DataHandler {
     }
 
     /**
-     * gets publisherList
+     * gets brokerList
      *
-     * @return value of publisherList
+     * @return value of brokerList
      */
     private List<Broker> getBrokerList() {
         return brokerList;
     }
 
     /**
-     * sets publisherList
+     * sets brokerList
      *
      * @param brokerList the value to set
      */
@@ -218,7 +218,7 @@ public class DataHandler {
     }
 
     /**
-     * sets publisherList
+     * sets brokerList
      *
      * @param aktienList the value to set
      */

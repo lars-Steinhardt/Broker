@@ -4,36 +4,25 @@ import ch.bzz.broker.data.DataHandler;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * a book in the bookshelf
  */
-public class Fond {
+public class Aktien {
     @JsonIgnore
     private Broker broker;
-    private List<Aktien> aktienList;
 
-    private String fondID;
+    private String aktienID;
     private String isin;
     private Float kurs;
     private Float volumen;
-
-    /**
-     * default constructor
-     */
-    public Fond() {
-        setAktienList(new ArrayList<>());
-    }
-
 
     public String getBrokerID() {
         return getBroker().getBrokerID();
     }
 
     /**
-     * creates a Broker-object without the fondlist
+     * creates a Broker-object without the aktienlist
      * @param brokerID
      */
     public void setBrokerID(String brokerID) {
@@ -41,6 +30,7 @@ public class Fond {
         Broker broker = DataHandler.getInstance().readBrokerByID(brokerID);
         getBroker().setBrokerID(brokerID);
         getBroker().setBrokerName(broker.getBrokerName());
+
     }
 
     public Broker getBroker() {
@@ -51,13 +41,12 @@ public class Fond {
         this.broker = broker;
     }
 
-
-    public String getFondID() {
-        return fondID;
+    public String getAktienID() {
+        return aktienID;
     }
 
-    public void setFondID(String fondID) {
-        this.fondID = fondID;
+    public void setAktienID(String aktienID) {
+        this.aktienID = aktienID;
     }
 
     public String getIsin() {
@@ -82,13 +71,5 @@ public class Fond {
 
     public void setVolumen(Float volumen) {
         this.volumen = volumen;
-    }
-
-    public List<Aktien> getAktienList() {
-        return aktienList;
-    }
-
-    public void setAktienList(List<Aktien> aktienList) {
-        this.aktienList = aktienList;
     }
 }

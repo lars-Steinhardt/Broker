@@ -1,7 +1,6 @@
 package ch.bzz.broker.service;
 
 import ch.bzz.broker.data.DataHandler;
-import ch.bzz.broker.model.Aktien;
 import ch.bzz.broker.model.Broker;
 import ch.bzz.broker.model.Fond;
 
@@ -14,44 +13,44 @@ import javax.ws.rs.core.Response;
 import java.awt.*;
 import java.util.List;
 
-@Path("broker")
-public class BrokerService {
+@Path("fond")
+public class FondService {
 
     /**
-     * read a list of all brokers
-     * @return brokers as JASON
+     * read a list of all fond
+     * @return fond as JASON
      */
 
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listBrokers(){
-        List<Broker> brokerList = DataHandler.getInstance().readAllBrokers();
+    public Response listFonds(){
+        List<Fond> fondList = DataHandler.getInstance().readAllFonds();
         return  Response
                 .status(200)
-                .entity(brokerList)
+                .entity(fondList)
                 .build();
     }
 
     /**
-     * reads a "broker" identified by the id
-     * @param brokerID
-     * @return broker
+     * reads a "fond" identified by the id
+     * @param fondID
+     * @return fond
      */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readBroker(
-            @QueryParam("id") String brokerID
+    public Response readFond(
+            @QueryParam("id") String fondID
     ) {
         int httpStatus = 200;
-        Broker broker = DataHandler.getInstance().readBrokerByID(brokerID);
-        if (broker == null) {
+        Fond fond = DataHandler.getInstance().readFondByID(fondID);
+        if (fond == null) {
             httpStatus = 410;
         }
         return Response
                 .status(httpStatus)
-                .entity(broker)
+                .entity(fond)
                 .build();
     }
 

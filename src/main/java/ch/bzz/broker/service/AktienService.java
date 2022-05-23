@@ -2,7 +2,6 @@ package ch.bzz.broker.service;
 
 import ch.bzz.broker.data.DataHandler;
 import ch.bzz.broker.model.Aktien;
-import ch.bzz.broker.model.Broker;
 import ch.bzz.broker.model.Fond;
 
 import javax.ws.rs.GET;
@@ -14,44 +13,44 @@ import javax.ws.rs.core.Response;
 import java.awt.*;
 import java.util.List;
 
-@Path("broker")
-public class BrokerService {
+@Path("aktien")
+public class AktienService {
 
     /**
-     * read a list of all brokers
-     * @return brokers as JASON
+     * read a list of all aktien
+     * @return aktien as JASON
      */
 
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listBrokers(){
-        List<Broker> brokerList = DataHandler.getInstance().readAllBrokers();
+    public Response listAktien(){
+        List<Aktien> aktienList = DataHandler.getInstance().readAllAktien();
         return  Response
                 .status(200)
-                .entity(brokerList)
+                .entity(aktienList)
                 .build();
     }
 
     /**
-     * reads a "broker" identified by the id
-     * @param brokerID
-     * @return broker
+     * reads a "aktien" identified by the id
+     * @param aktienID
+     * @return aktien
      */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readBroker(
-            @QueryParam("id") String brokerID
+    public Response readAktien(
+            @QueryParam("id") String aktienID
     ) {
         int httpStatus = 200;
-        Broker broker = DataHandler.getInstance().readBrokerByID(brokerID);
-        if (broker == null) {
+        Aktien aktien = DataHandler.getInstance().readAktienByID(aktienID);
+        if (aktien == null) {
             httpStatus = 410;
         }
         return Response
                 .status(httpStatus)
-                .entity(broker)
+                .entity(aktien)
                 .build();
     }
 

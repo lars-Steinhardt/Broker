@@ -1,5 +1,6 @@
 package ch.bzz.broker.data;
 
+import ch.bzz.broker.model.Aktien;
 import ch.bzz.broker.model.Fond;
 import ch.bzz.broker.model.Broker;
 import ch.bzz.broker.service.Config;
@@ -18,6 +19,7 @@ import java.util.List;
 public class DataHandler {
     private static DataHandler instance = null;
     private List<Fond> fondList;
+    private List<Aktien> aktienList;
     private List<Broker> brokerList;
 
     /**
@@ -28,6 +30,8 @@ public class DataHandler {
         readBrokerJSON();
         setFondList(new ArrayList<>());
         readFondJSON();
+        setAktienList(new ArrayList<>());
+        readAktienJSON();
     }
 
     /**
@@ -62,6 +66,29 @@ public class DataHandler {
             }
         }
         return fond;
+    }
+
+    /**
+     * reads all aktien
+     * @return list of aktien
+     */
+    public List<Aktien> readAllAktien() {
+        return getAktienList();
+    }
+
+    /**
+     * reads a book by its uuid
+     * @param aktienID
+     * @return the Book (null=not found)
+     */
+    public Aktien readAktienByID(String aktienID) {
+        Aktien aktien = null;
+        for (Aktien entry : getAktienList()) {
+            if (entry.getAktienID().equals(aktienID)) {
+                aktien = entry;
+            }
+        }
+        return aktien;
     }
 
     /**
@@ -101,6 +128,25 @@ public class DataHandler {
             Fond[] fonds = objectMapper.readValue(jsonData, Fond[].class);
             for (Fond fond : fonds) {
                 getFondList().add(fond);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * reads the "aktien" from the JSON-file
+     */
+    private void readAktienJSON() {
+        try {
+            String path = Config.getProperty("aktienJSON");
+            byte[] jsonData = Files.readAllBytes(
+                    Paths.get(path)
+            );
+            ObjectMapper objectMapper = new ObjectMapper();
+            Aktien[] aktien = objectMapper.readValue(jsonData, Aktien[].class);
+            for (Aktien aktie : aktien) {
+                getAktienList().add(aktie);
             }
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -162,5 +208,22 @@ public class DataHandler {
         this.brokerList = brokerList;
     }
 
+    /**
+     * gets aktienList
+     *
+     * @return value of aktienList
+     */
+    private List<Aktien> getAktienList() {
+        return aktienList;
+    }
+
+    /**
+     * sets publisherList
+     *
+     * @param aktienList the value to set
+     */
+    private void setAktienList(List<Aktien> aktienList) {
+        this.aktienList = aktienList;
+    }
 
 }

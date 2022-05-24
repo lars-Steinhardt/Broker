@@ -1,0 +1,282 @@
+{
+	"id": "adb812b6-6f5e-4f6e-8116-badc187e5cd8",
+	"name": "BrokerCollection",
+	"timestamp": "2022-05-24T06:24:11.768Z",
+	"collection_id": "0-fa3d79ec-5c31-4d15-b00d-a6420735edd3",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "d878e17e-8aeb-4285-896f-37f95f7f2190",
+			"name": "broker/list",
+			"url": "http://localhost:8080/Broker-1.0/resource/broker/list",
+			"time": 220,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				220
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f4a4b0fb-5c42-4168-a845-768cb27fb3f5",
+			"name": "fond/list",
+			"url": "http://localhost:8080/Broker-1.0/resource/fond/list",
+			"time": 30,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				30
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "156d30d8-a2e3-4009-b3de-f6d2e7bbde60",
+			"name": "aktien/list",
+			"url": "http://localhost:8080/Broker-1.0/resource/aktien/list",
+			"time": 84,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				84
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "356b7aa6-ce9a-4134-aa73-ffd00a158a7b",
+			"name": "broker/read?id",
+			"url": "http://localhost:8080/Broker-1.0/resource/broker/read?id=06fc334d-7b02-434f-9222-6544d30d8832",
+			"time": 25,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				25
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "883189d2-44de-419f-9450-e7361f1999ed",
+			"name": "fond/read?id",
+			"url": "http://localhost:8080/Broker-1.0/resource/fond/read?id=3247c340-c712-402e-b400-0a23a9368c97",
+			"time": 24,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				24
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b84ae5b3-4055-4f00-8825-8b7ca70c2b23",
+			"name": "aktien/read?id",
+			"url": "http://localhost:8080/Broker-1.0/resource/aktien/read?id=3247c340-c712-402e-b400-0a23a9368c97",
+			"time": 30,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				30
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "0e215bf6-8b4d-4597-84db-2d7e8697905a",
+			"name": "broker/read?id \"none\"",
+			"url": "http://localhost:8080/Broker-1.0/resource/broker/read?id=",
+			"time": 21,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				21
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "cce834a8-c7b6-411d-8a89-7bb22ac5dabe",
+			"name": "fond/read?id \"none\"",
+			"url": "http://localhost:8080/Broker-1.0/resource/fond/read?id=",
+			"time": 24,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				24
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "039ff4d1-b913-4802-9ac1-dd9ec0639bf4",
+			"name": "aktien/read?id \"none\"",
+			"url": "http://localhost:8080/Broker-1.0/resource/aktien/read?id=",
+			"time": 38,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				38
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c7472547-69af-490c-8d37-1a71813d7dda",
+			"name": "broker/read?id \"invalid\"",
+			"url": "http://localhost:8080/Broker-1.0/resource/broker/read?id=06fc3434d-7b34502-434f-74522-6544d30d8832",
+			"time": 31,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				31
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9d78401c-36c0-47fe-bf67-3bdfb1e4db84",
+			"name": "fond/read?id \"invalid\"",
+			"url": "http://localhost:8080/Broker-1.0/resource/fond/read?id=3247c340-c7sdf23412-402e-b400-0a23a9368c97",
+			"time": 23,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				23
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "34b8d55a-bb62-45fd-bd18-d9ed1483579b",
+			"name": "aktien/read?id \"invalid\"",
+			"url": "http://localhost:8080/Broker-1.0/resource/aktien/read?id=3247c340-c712-402e-b400-0a23a9368c97",
+			"time": 23,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				23
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 573,
+	"collection": {
+		"requests": [
+			{
+				"id": "d878e17e-8aeb-4285-896f-37f95f7f2190",
+				"method": "GET"
+			},
+			{
+				"id": "f4a4b0fb-5c42-4168-a845-768cb27fb3f5",
+				"method": "GET"
+			},
+			{
+				"id": "156d30d8-a2e3-4009-b3de-f6d2e7bbde60",
+				"method": "GET"
+			},
+			{
+				"id": "356b7aa6-ce9a-4134-aa73-ffd00a158a7b",
+				"method": "GET"
+			},
+			{
+				"id": "883189d2-44de-419f-9450-e7361f1999ed",
+				"method": "GET"
+			},
+			{
+				"id": "b84ae5b3-4055-4f00-8825-8b7ca70c2b23",
+				"method": "GET"
+			},
+			{
+				"id": "0e215bf6-8b4d-4597-84db-2d7e8697905a",
+				"method": "GET"
+			},
+			{
+				"id": "cce834a8-c7b6-411d-8a89-7bb22ac5dabe",
+				"method": "GET"
+			},
+			{
+				"id": "039ff4d1-b913-4802-9ac1-dd9ec0639bf4",
+				"method": "GET"
+			},
+			{
+				"id": "c7472547-69af-490c-8d37-1a71813d7dda",
+				"method": "GET"
+			},
+			{
+				"id": "9d78401c-36c0-47fe-bf67-3bdfb1e4db84",
+				"method": "GET"
+			},
+			{
+				"id": "34b8d55a-bb62-45fd-bd18-d9ed1483579b",
+				"method": "GET"
+			}
+		]
+	}
+}

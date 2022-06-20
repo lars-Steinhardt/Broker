@@ -1,0 +1,931 @@
+{
+	"info": {
+		"_postman_id": "36134afa-0220-4157-b347-6d6720abe44b",
+		"name": "BrokerCollection DeleteUpdateCreate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Delete Broker",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/broker/delete?id=06fc334d-7b02-434f-9222-6544d30d8832",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"broker",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "06fc334d-7b02-434f-9222-6544d30d8832"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Broker not found",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/broker/delete?id=234f2334d-7b02-434f-9222-6544d30d8832",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"broker",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "234f2334d-7b02-434f-9222-6544d30d8832"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Aktien",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/aktien/delete?id=3247c340-c712-402e-b400-0a23a9368c97",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"aktien",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3247c340-c712-402e-b400-0a23a9368c97"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Aktien not found",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/aktien/delete?id=3247c340-c712-40ksbvklscj ökbns",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"aktien",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3247c340-c712-40ksbvklscj ökbns"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Fond",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/fond/delete?id=3247c340-c712-402e-b400-0a23a9368c97",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"fond",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3247c340-c712-402e-b400-0a23a9368c97"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Fond not found",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/fond/delete?id=3247c340-c712-402e-b000-0a23a9368c97",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"fond",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3247c340-c712-402e-b000-0a23a9368c97"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Broker",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "brokerID",
+							"value": "789cc4a5-8bfd-4e24-85c1-ecf6b9819698",
+							"type": "text"
+						},
+						{
+							"key": "brokerName",
+							"value": "Alex DD",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/broker/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"broker",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Broker invalid",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/broker/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"broker",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Broker",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "brokerID",
+							"value": "ecd86148-5341-43c6-81ed-f3f4595965dc",
+							"type": "text"
+						},
+						{
+							"key": "brokerName",
+							"value": "Orbit",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/broker/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"broker",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Broker Invalid",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "brokerID",
+							"value": "ecd86008-5341-43c6-81ed-f3f4595965dc",
+							"type": "text"
+						},
+						{
+							"key": "brokerName",
+							"value": "Orbit",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/broker/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"broker",
+						"update"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Broker: brokerName title too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"    });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "brokerID",
+						"value": "7823450789345",
+						"type": "default"
+					},
+					{
+						"key": "brokerName",
+						"value": "A",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "brokerID",
+							"value": "789345789345789",
+							"type": "text"
+						},
+						{
+							"key": "brokerName",
+							"value": "DO",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/broker/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"broker",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Broker: brokerName title too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"    });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "brokerID",
+						"value": "7823450789345",
+						"type": "default"
+					},
+					{
+						"key": "brokerName",
+						"value": "A",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "brokerID",
+							"value": "789345789345789",
+							"type": "text"
+						},
+						{
+							"key": "brokerName",
+							"value": "DO",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/broker/create?brokerID=0u9457685&brokerName=jhlksvkjhmksfgjnklc jnklasdvjnklasdvbjksdvbjksjnksdvjnklsvjnkasdvjnklsdfvjnklsdvjnklsvjlsdvjnlsdvjnklsdvjnklsdvjnlasdvjnksdvjnkasdvjnsdjnkdsjnksdvjnksdvjnksdvjnk",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"broker",
+						"create"
+					],
+					"query": [
+						{
+							"key": "brokerID",
+							"value": "0u9457685"
+						},
+						{
+							"key": "brokerName",
+							"value": "jhlksvkjhmksfgjnklc jnklasdvjnklasdvbjksdvbjksjnksdvjnklsvjnkasdvjnklsdfvjnklsdvjnklsvjlsdvjnlsdvjnklsdvjnklsdvjnlasdvjnksdvjnkasdvjnsdjnkdsjnksdvjnksdvjnksdvjnk"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Broker: brokerID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"    });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "brokerID",
+						"value": "7823450789345",
+						"type": "default"
+					},
+					{
+						"key": "brokerName",
+						"value": "A",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "brokerID",
+							"value": "789345789345789",
+							"type": "text"
+						},
+						{
+							"key": "brokerName",
+							"value": "Name",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/broker/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"broker",
+						"create"
+					],
+					"query": [
+						{
+							"key": "brokerID",
+							"value": "0u9457685",
+							"disabled": true
+						},
+						{
+							"key": "brokerName",
+							"value": "Atlas",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Broker: brokerID Invalid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"    });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "brokerID",
+						"value": "7823450789345",
+						"type": "default"
+					},
+					{
+						"key": "brokerName",
+						"value": "A",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "brokerID",
+							"value": "789345789345789:à_è_£:à_£_££_£_££à£à!",
+							"type": "text"
+						},
+						{
+							"key": "brokerName",
+							"value": "Name",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/broker/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"broker",
+						"create"
+					],
+					"query": [
+						{
+							"key": "brokerID",
+							"value": "0u9457685",
+							"disabled": true
+						},
+						{
+							"key": "brokerName",
+							"value": "Atlas",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Aktien: isin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"    });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "brokerID",
+						"value": "7823450789345",
+						"type": "default"
+					},
+					{
+						"key": "brokerName",
+						"value": "A",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "aktienID",
+							"value": "789345789345789:à_è_£:à_£_££_£_££à£à!",
+							"type": "text"
+						},
+						{
+							"key": "isin",
+							"value": "Namennnn",
+							"type": "text"
+						},
+						{
+							"key": "brokerID",
+							"value": "ifhr244",
+							"type": "default"
+						},
+						{
+							"key": "kurs",
+							"value": "64",
+							"type": "default"
+						},
+						{
+							"key": "volumen",
+							"value": "345345",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/Aktien/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"Aktien",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Aktien: isin too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"    });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "brokerID",
+						"value": "7823450789345",
+						"type": "default"
+					},
+					{
+						"key": "brokerName",
+						"value": "A",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "aktienID",
+							"value": "789345789345789:à_è_£:à_£_££_£_££à£à!",
+							"type": "text"
+						},
+						{
+							"key": "isin",
+							"value": "Namennnnfhhhhhhhhhhhhhhhhhhhhhhhhffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+							"type": "text"
+						},
+						{
+							"key": "brokerID",
+							"value": "ifhr244",
+							"type": "default"
+						},
+						{
+							"key": "kurs",
+							"value": "64",
+							"type": "default"
+						},
+						{
+							"key": "volumen",
+							"value": "345345",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/Aktien/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"Aktien",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Aktien: isin too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"    });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "brokerID",
+						"value": "7823450789345",
+						"type": "default"
+					},
+					{
+						"key": "brokerName",
+						"value": "A",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "aktienID",
+							"value": "789345789345789:à_è_£:à_£_££_£_££à£à!",
+							"type": "text"
+						},
+						{
+							"key": "isin",
+							"value": "Nam",
+							"type": "text"
+						},
+						{
+							"key": "brokerID",
+							"value": "ifhr244",
+							"type": "default"
+						},
+						{
+							"key": "kurs",
+							"value": "64",
+							"type": "default"
+						},
+						{
+							"key": "volumen",
+							"value": "345345",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/Aktien/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"Aktien",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Aktien",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "aktienID",
+							"value": "ecd86008-5341-43c6-81ed-f3f4595965dc",
+							"type": "text"
+						},
+						{
+							"key": "isin",
+							"value": "Orbit345",
+							"type": "text"
+						},
+						{
+							"key": "kurs",
+							"value": "234",
+							"type": "default"
+						},
+						{
+							"key": "volumen",
+							"value": "34554",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/aktien/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"aktien",
+						"update"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Aktien invalid",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "aktienID",
+							"value": "ecd86008-5341-43c6-81ed-f3f4595965dc",
+							"type": "text"
+						},
+						{
+							"key": "isin",
+							"value": "Orbit345",
+							"type": "text"
+						},
+						{
+							"key": "kurs",
+							"value": "0.0000005",
+							"type": "default"
+						},
+						{
+							"key": "volumen",
+							"value": "34554",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Broker-1.0/resource/aktien/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Broker-1.0",
+						"resource",
+						"aktien",
+						"update"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

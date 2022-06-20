@@ -5,9 +5,13 @@ import ch.bzz.broker.model.Fond;
 import ch.bzz.broker.model.Broker;
 import ch.bzz.broker.service.Config;
 
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
-import java.io.IOException;
+import javax.xml.crypto.Data;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -16,49 +20,33 @@ import java.util.List;
 /**
  * reads and writes the data in the JSON-files
  */
-public class DataHandler {
-    private static DataHandler instance = null;
-    private List<Fond> fondList;
-    private List<Aktien> aktienList;
-    private List<Broker> brokerList;
+public final class DataHandler {
+    private static List<Fond> fondList;
+    private static List<Aktien> aktienList;
+    private static List<Broker> brokerList;
 
     /**
      * private constructor defeats instantiation
      */
     private DataHandler() {
-        setBrokerList(new ArrayList<>());
-        readBrokerJSON();
-        setFondList(new ArrayList<>());
-        readFondJSON();
-        setAktienList(new ArrayList<>());
-        readAktienJSON();
     }
-
-    /**
-     * gets the only instance of this class
-     * @return
-     */
-    public static DataHandler getInstance() {
-        if (instance == null)
-            instance = new DataHandler();
-        return instance;
-    }
-
 
     /**
      * reads all fonds
+     *
      * @return list of fonds
      */
-    public List<Fond> readAllFonds() {
+    public static List<Fond> readAllFonds() {
         return getFondList();
     }
 
     /**
-     * reads a book by its id
+     * reads a fond by its id
+     *
      * @param fondID
-     * @return the book (null=not found)
+     * @return the fond (null=not found)
      */
-    public Fond readFondByID(String fondID) {
+    public static Fond readFondByID(String fondID) {
         Fond fond = null;
         for (Fond entry : getFondList()) {
             if (entry.getFondID().equals(fondID)) {
@@ -72,7 +60,7 @@ public class DataHandler {
      * reads all aktien
      * @return list of aktien
      */
-    public List<Aktien> readAllAktien() {
+    public static List<Aktien> readAllAktien() {
         return getAktienList();
     }
 
@@ -81,7 +69,7 @@ public class DataHandler {
      * @param aktienID
      * @return the Aktien (null=not found)
      */
-    public Aktien readAktienByID(String aktienID) {
+    public static Aktien readAktienByID(String aktienID) {
         Aktien aktien = null;
         for (Aktien entry : getAktienList()) {
             if (entry.getAktienID().equals(aktienID)) {
@@ -93,19 +81,21 @@ public class DataHandler {
 
     /**
      * reads all Brokers
+     *
      * @return list of Brokers
      */
-    public List<Broker> readAllBrokers() {
+    public static List<Broker> readAllBrokers() {
 
         return getBrokerList();
     }
 
     /**
      * reads a Broker by its id
+     *
      * @param brokerID
      * @return the Broker (null=not found)
      */
-    public Broker readBrokerByID(String brokerID) {
+    public static Broker readBrokerByID(String brokerID) {
         Broker broker = null;
         for (Broker entry : getBrokerList()) {
             if (entry.getBrokerID().equals(brokerID)) {
@@ -118,7 +108,7 @@ public class DataHandler {
     /**
      * reads the fonds from the JSON-file
      */
-    private void readFondJSON() {
+    private static void readFondJSON() {
         try {
             String path = Config.getProperty("fondsJSON");
             byte[] jsonData = Files.readAllBytes(
@@ -137,7 +127,7 @@ public class DataHandler {
     /**
      * reads the aktien from the JSON-file
      */
-    private void readAktienJSON() {
+    private static void readAktienJSON() {
         try {
             String path = Config.getProperty("aktienJSON");
             byte[] jsonData = Files.readAllBytes(
@@ -156,7 +146,7 @@ public class DataHandler {
     /**
      * reads the brokers from the JSON-file
      */
-    private void readBrokerJSON() {
+    private static void readBrokerJSON() {
         try {
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(
@@ -172,58 +162,237 @@ public class DataHandler {
             ex.printStackTrace();
         }
     }
+
     /**
-     * gets fondList
-     *
-     * @return value of fondList
+     * writes the brokerList to the JSON-file
      */
-    private List<Fond> getFondList() {
-        return fondList;
+    private static void writeBrokerJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String brokerPath = Config.getProperty("brokerJSON");
+        try {
+            fileOutputStream = new FileOutputStream(brokerPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getBrokerList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
     /**
-     * sets fondList
-     *
-     * @param fondList the value to set
+     * writes the aktienList to the JSON-file
      */
-    private void setFondList(List<Fond> fondList) {
-        this.fondList = fondList;
+    private static void writeAktienJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String aktienPath = Config.getProperty("aktienJSON");
+        try {
+            fileOutputStream = new FileOutputStream(aktienPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getAktienList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
     /**
-     * gets brokerList
-     *
-     * @return value of brokerList
+     * writes the fondList to the JSON-file
      */
-    private List<Broker> getBrokerList() {
-        return brokerList;
+    private static void writeFondJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String fondPath = Config.getProperty("fondJSON");
+        try {
+            fileOutputStream = new FileOutputStream(fondPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getFondList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
     /**
-     * sets brokerList
+     * inserts a new broker into the brokerList
      *
-     * @param brokerList the value to set
+     * @param broker the publisher to be saved
      */
-    private void setBrokerList(List<Broker> brokerList) {
-        this.brokerList = brokerList;
+
+    public static void insertBroker(Broker broker){
+        getBrokerList().add(broker);
+         getBrokerList();
+        writeBrokerJSON();
     }
 
     /**
-     * gets aktienList
+     * inserts a new fond into the brokerList
      *
-     * @return value of aktienList
+     * @param fond the publisher to be saved
      */
-    private List<Aktien> getAktienList() {
-        return aktienList;
+
+    public static void insertFond(Fond fond){
+        getFondList().add(fond);
+        writeFondJSON();
     }
 
     /**
-     * sets brokerList
+     * inserts a new aktien into the brokerList
      *
-     * @param aktienList the value to set
+     * @param aktien the publisher to be saved
      */
-    private void setAktienList(List<Aktien> aktienList) {
-        this.aktienList = aktienList;
+
+    public static void insertAktien(Aktien aktien){
+        getAktienList().add(aktien);
+        writeAktienJSON();
     }
+
+    /**
+     * updates the brokerList
+     */
+    public static void updateBroker() {
+        writeBrokerJSON();
+    }
+
+    /**
+     * updates the fondList
+     */
+    public static void updateFond() {
+        writeFondJSON();
+    }
+
+    /**
+     * updates the aktienList
+     */
+    public static void updateAktien() {
+        writeAktienJSON();
+    }
+
+
+    /**
+     * deletes a broker identified by the brokerID
+     *
+     * @param brokerID the key
+     * @return success=true/false
+     **/
+    public static boolean deleteBroker(String brokerID) {
+        Broker broker = readBrokerByID(brokerID);
+        if (broker != null) {
+            getBrokerList().remove(broker);
+            writeBrokerJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * deletes a aktien identified by the brokerID
+     *
+     * @param aktienID the key
+     * @return success=true/false
+     **/
+    public static boolean deleteAktien(String aktienID) {
+        Aktien aktien = readAktienByID(aktienID);
+        if (aktien != null) {
+            getAktienList().remove(aktien);
+            writeAktienJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * deletes a fond identified by the brokerID
+     *
+     * @param fondID the key
+     * @return success=true/false
+     **/
+    public static boolean deleteFond(String fondID) {
+        Fond fond = readFondByID(fondID);
+        if (fond != null) {
+            getFondList().remove(fond);
+            writeFondJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+        /**
+         * gets fondList
+         *
+         * @return value of fondList
+         */
+        private static List<Fond> getFondList () {
+            if (fondList == null) {
+                setFondList(new ArrayList<>());
+                readFondJSON();
+            }
+            return fondList;
+        }
+
+        /**
+         * sets fondList
+         *
+         * @param fondList the value to set
+         */
+        private static void setFondList (List < Fond > fondList) {
+            DataHandler.fondList = fondList;
+        }
+
+        /**
+         * gets brokerList
+         *
+         * @return value of brokerList
+         */
+
+        private static List<Broker> getBrokerList () {
+            if (brokerList == null) {
+                setBrokerList(new ArrayList<>());
+                readBrokerJSON();
+            }
+            return brokerList;
+        }
+
+        /**
+         * sets brokerList
+         *
+         * @param brokerList the value to set
+         */
+        private static void setBrokerList (List < Broker > brokerList) {
+            DataHandler.brokerList = brokerList;
+        }
+
+        /**
+         * gets aktienList
+         *
+         * @return value of aktienList
+         */
+        private static List<Aktien> getAktienList () {
+            if (aktienList == null) {
+                setAktienList(new ArrayList<>());
+                readAktienJSON();
+            }
+            return aktienList;
+        }
+
+        /**
+         * sets aktienList
+         *
+         * @param aktienList the value to set
+         */
+        private static void setAktienList (List < Aktien > aktienList) {
+            DataHandler.aktienList = aktienList;
+        }
+
 
 }

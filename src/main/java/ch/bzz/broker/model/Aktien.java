@@ -3,6 +3,8 @@ package ch.bzz.broker.model;
 import ch.bzz.broker.data.DataHandler;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.validation.constraints.*;
+import javax.ws.rs.FormParam;
 import java.math.BigDecimal;
 
 /**
@@ -12,10 +14,26 @@ public class Aktien {
     @JsonIgnore
     private Broker broker;
 
+    @FormParam("aktienID")
+    @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String aktienID;
+
+    @FormParam("isin")
+    @NotEmpty
+    @Size(min=5, max=40)
     private String isin;
-    private Float kurs;
-    private Float volumen;
+
+    @FormParam("kurs")
+    @NotNull
+    @DecimalMax(value="19900000.95")
+    @DecimalMin(value="0.05")
+    private BigDecimal kurs;
+
+    @FormParam("volumen")
+    @NotNull
+    @DecimalMax(value="199000000.95")
+    @DecimalMin(value="0.05")
+    private BigDecimal volumen;
 
     public String getBrokerID() {
         return getBroker().getBrokerID();
@@ -27,7 +45,7 @@ public class Aktien {
      */
     public void setBrokerID(String brokerID) {
         setBroker( new Broker());
-        Broker broker = DataHandler.getInstance().readBrokerByID(brokerID);
+        Broker broker = DataHandler.readBrokerByID(brokerID);
         getBroker().setBrokerID(brokerID);
         getBroker().setBrokerName(broker.getBrokerName());
 
@@ -57,19 +75,19 @@ public class Aktien {
         this.isin = isin;
     }
 
-    public Float getKurs() {
+    public BigDecimal getKurs() {
         return kurs;
     }
 
-    public void setKurs(Float kurs) {
+    public void setKurs(BigDecimal kurs) {
         this.kurs = kurs;
     }
 
-    public Float getVolumen() {
+    public BigDecimal getVolumen() {
         return volumen;
     }
 
-    public void setVolumen(Float volumen) {
+    public void setVolumen(BigDecimal volumen) {
         this.volumen = volumen;
     }
 }

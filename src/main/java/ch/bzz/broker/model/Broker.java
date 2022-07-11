@@ -11,8 +11,6 @@ import javax.ws.rs.FormParam;
  * a Broker
  */
 public class Broker {
-    @JsonIgnore
-
     @FormParam("brokerID")
     @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String brokerID;

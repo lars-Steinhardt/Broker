@@ -11,7 +11,6 @@ import java.math.BigDecimal;
  * a Aktien in the Broker
  */
 public class Aktien {
-    @JsonIgnore
     private Broker broker;
 
     @FormParam("aktienID")

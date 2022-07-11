@@ -110,7 +110,7 @@ public final class DataHandler {
      */
     private static void readFondJSON() {
         try {
-            String path = Config.getProperty("fondsJSON");
+            String path = Config.getProperty("fondJSON");
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(path)
             );
@@ -150,7 +150,7 @@ public final class DataHandler {
         try {
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(
-                            Config.getProperty("brokersJSON")
+                            Config.getProperty("brokerJSON")
                     )
             );
             ObjectMapper objectMapper = new ObjectMapper();
@@ -295,10 +295,10 @@ public final class DataHandler {
 
     /**
      * deletes a aktien identified by the brokerID
-     *
      * @param aktienID the key
      * @return success=true/false
      **/
+
     public static boolean deleteAktien(String aktienID) {
         Aktien aktien = readAktienByID(aktienID);
         if (aktien != null) {

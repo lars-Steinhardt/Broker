@@ -49,7 +49,7 @@ public class AktienService {
     public Response readAktien(
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-            @QueryParam("id") String aktienID
+            @QueryParam("aktienID") String aktienID
     ) {
         int httpStatus = 200;
         Aktien aktien = DataHandler.readAktienByID(aktienID);
@@ -62,6 +62,13 @@ public class AktienService {
                 .build();
     }
 
+    /**
+     * insert new aktien
+     * @param brokerID
+     * @return
+     */
+
+
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
@@ -72,7 +79,6 @@ public class AktienService {
             @FormParam("brokerID")String brokerID
     ){
         aktien.setBrokerID(brokerID);
-
         DataHandler.insertAktien(aktien);
         return Response
                 .status(200)
@@ -124,7 +130,7 @@ public class AktienService {
     public Response deleteAktien(
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-            @QueryParam("id") String aktienID
+            @QueryParam("aktienID") String aktienID
     ) {
         int httpStatus = 200;
         if (!DataHandler.deleteAktien(aktienID)) {

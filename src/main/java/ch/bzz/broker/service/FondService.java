@@ -49,7 +49,7 @@ public class FondService {
     public Response readFond(
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-            @QueryParam("id") String fondID
+            @QueryParam("fondID") String fondID
     ) {
         int httpStatus = 200;
         Fond fond = DataHandler.readFondByID(fondID);
@@ -80,7 +80,6 @@ public class FondService {
             ){
 
         fond.setBrokerID(brokerID);
-
         DataHandler.insertFond(fond);
         return Response
                 .status(200)
@@ -131,7 +130,7 @@ public class FondService {
     public Response deleteFond(
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-            @QueryParam("id") String fondID
+            @QueryParam("fondID") String fondID
     ) {
         int httpStatus = 200;
         if (!DataHandler.deleteFond(fondID)) {

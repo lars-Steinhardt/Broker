@@ -13,8 +13,8 @@ import java.util.List;
  * a Fond in Broker
  */
 public class Fond {
-    @JsonIgnore
     private Broker broker;
+
     private List<Aktien> aktienList;
 
     @FormParam("fondID")

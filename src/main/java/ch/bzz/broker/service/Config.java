@@ -17,19 +17,18 @@ import java.util.Set;
 
 public class Config extends Application {
 
-    private static final String PROPERTIES_PATH = "/home/bzz/IdeaProjects/BrokerData/fondList.properties";
+    private static final String PROPERTIES_PATH = "/home/bzz/BrokerData/list.properties";
 
     private static Properties properties = null;
 
     /**
      * define all provider classes
      *
-     * @return set of classes
+     * @return set of classes@JsonIgnore
      */
     @Override
     public Set<Class<?>> getClasses() {
         HashSet providers = new HashSet<Class<?>>();
-        providers.add(TestService.class);
         providers.add(BrokerService.class);
         providers.add(FondService.class);
         providers.add(AktienService.class);
@@ -38,7 +37,6 @@ public class Config extends Application {
 
     /**
      * Gets the value of a property
-     *
      * @param property the key of the property to be read
      * @return the value of the property
      */

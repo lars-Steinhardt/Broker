@@ -24,15 +24,16 @@ public class BrokerService {
 
     /**
      * read a list of all brokers
+     *
      * @return brokers as JASON
      */
 
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listBrokers(){
+    public Response listBrokers() {
         List<Broker> brokerList = DataHandler.readAllBrokers();
-        return  Response
+        return Response
                 .status(200)
                 .entity(brokerList)
                 .build();
@@ -40,6 +41,7 @@ public class BrokerService {
 
     /**
      * reads a "broker" identified by the id
+     *
      * @param brokerID
      * @return broker
      */
@@ -49,7 +51,7 @@ public class BrokerService {
     public Response readBroker(
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-            @QueryParam("id") String brokerID
+            @QueryParam("brokerID") String brokerID
     ) {
         int httpStatus = 200;
         Broker broker = DataHandler.readBrokerByID(brokerID);
@@ -64,6 +66,7 @@ public class BrokerService {
 
     /**
      * insert a new broker
+     *
      * @param brokerID
      * @return Response
      */
@@ -71,11 +74,11 @@ public class BrokerService {
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertBroker(
-    @Valid @BeanParam Broker broker,
-    @NotEmpty
-    @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-    @FormParam("brokerID")String brokerID
-    ){
+            @Valid @BeanParam Broker broker,
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+            @FormParam("brokerID") String brokerID
+    ) {
 
         broker.setBrokerID(brokerID);
 
@@ -88,8 +91,8 @@ public class BrokerService {
 
     /**
      * updates a broker
+     *
      * @param brokerID the key
-
      * @return Response
      */
     @PUT
@@ -97,7 +100,7 @@ public class BrokerService {
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateBroker(
             @Valid @BeanParam Broker broker,
-            @FormParam("id") String brokerID
+            @FormParam("brokerID") String brokerID
     ) {
         int httpStatus = 200;
         Broker oldBroker = DataHandler.readBrokerByID(broker.getBrokerID());
@@ -116,14 +119,15 @@ public class BrokerService {
 
     /**
      * deletes a broker identified by its id
-     * @param brokerID  the key
-     * @return  Response
+     *
+     * @param brokerID the key
+     * @return Response
      */
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteBroker(
-            @QueryParam("id") String brokerID
+            @QueryParam("brokerID") String brokerID
     ) {
         int httpStatus = 200;
         if (!DataHandler.deleteBroker(brokerID)) {
@@ -134,6 +138,4 @@ public class BrokerService {
                 .entity("")
                 .build();
     }
-
-
 }

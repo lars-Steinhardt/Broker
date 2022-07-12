@@ -21,7 +21,7 @@ function  readAktien() {
         })
         .then(response => response.json())
         .then(data => {
-            showBook(data);
+            showAktien(data);
         })
         .catch(function (error) {
             console.log(error);
@@ -33,10 +33,10 @@ function  readAktien() {
  * @param data
  */
 
-function showaktien(data){
+function showAktien(data){
     document.getElementById("aktienID").value = data.aktienID;
     document.getElementById("isin").value = data.isin;
     document.getElementById("brokerID").value = data.brokerID;
     document.getElementById("kurs").value = data.kurs;
-    document.getElementById("volumenD").value = data.volumen;
+    document.getElementById("volumen").value = data.volumen;
 }

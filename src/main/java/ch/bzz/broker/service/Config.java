@@ -32,6 +32,7 @@ public class Config extends Application {
         providers.add(BrokerService.class);
         providers.add(FondService.class);
         providers.add(AktienService.class);
+        providers.add(UserService.class);
         return providers;
     }
 
@@ -53,6 +54,7 @@ public class Config extends Application {
     /**
      * reads the properties file
      */
+
     private static void readProperties() {
 
         InputStream inputStream;

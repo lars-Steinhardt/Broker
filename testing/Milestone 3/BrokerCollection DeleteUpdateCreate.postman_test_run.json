@@ -1,0 +1,605 @@
+{
+	"id": "b6c4fb05-0118-45e4-8359-713d2894d0c3",
+	"name": "BrokerCollection DeleteUpdateCreate",
+	"timestamp": "2022-07-12T12:39:05.022Z",
+	"collection_id": "0-36134afa-0220-4157-b347-6d6720abe44b",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 5,
+	"totalFail": 4,
+	"results": [
+		{
+			"id": "30d28833-55c1-40dd-b731-bbdc42522d60",
+			"name": "Delete Broker",
+			"url": "http://localhost:8080/Broker-1.0/resource/broker/delete?brokerID=ecd86148-5341-43c6-81ed-f3f4595965dc",
+			"time": 9,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				9
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "5efc1809-223d-4620-8573-4bfeb605884b",
+			"name": "Delete Broker not found",
+			"url": "http://localhost:8080/Broker-1.0/resource/broker/delete?brokerID=234f2334d-7b02-434f-9222-6544d30d8832",
+			"time": 6,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				6
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b2be7caa-0707-4150-8a6a-14cdf6aa5392",
+			"name": "Delete Aktien",
+			"url": "http://localhost:8080/Broker-1.0/resource/aktien/delete?aktienID=3247c340-c712-402e-b400-0a23a9368c97",
+			"time": 9,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				9
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "67f7c1ae-0fe0-46a1-9443-4481fb67cf74",
+			"name": "Delete Aktien not found",
+			"url": "http://localhost:8080/Broker-1.0/resource/aktien/delete?aktienID=3247c340-c712-40ksbvklscj%20%C3%B6kbns",
+			"time": 15,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				15
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a63937d5-aa11-4f44-acb1-e1ab186b78d8",
+			"name": "Delete Fond",
+			"url": "http://localhost:8080/Broker-1.0/resource/fond/delete?fondID=3247c340-c712-402e-b400-0a23a9368c97",
+			"time": 7,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				7
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "4b328e3f-bbf8-4a99-8ad5-d7b665bad046",
+			"name": "Delete Fond not found",
+			"url": "http://localhost:8080/Broker-1.0/resource/fond/delete?fondID=3247c340-c712-402e-b000-0a23a9368c97",
+			"time": 13,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				13
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e021e7db-f1fb-47e5-bf9c-89525aa31b29",
+			"name": "Create Broker",
+			"url": "http://localhost:8080/Broker-1.0/resource/broker/create",
+			"time": 22,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				22
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "92e2c3c4-74d8-4dce-822e-420fda2127e1",
+			"name": "Create Broker invalid",
+			"url": "http://localhost:8080/Broker-1.0/resource/broker/create",
+			"time": 14,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				14
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "60adbd27-5501-4d30-8687-c2cce9336904",
+			"name": "Create Aktien",
+			"url": "http://localhost:8080/Broker-1.0/resource/aktien/create",
+			"time": 41,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				41
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "405faa08-a046-4422-8d42-f8538692f4ce",
+			"name": "Create Fond",
+			"url": "http://localhost:8080/Broker-1.0/resource/fond/create",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				6
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "7eccee0a-3b95-4f35-abb3-a9c63badc410",
+			"name": "Update Broker",
+			"url": "http://localhost:8080/Broker-1.0/resource/broker/update",
+			"time": 13,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				13
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "994a6a3a-4779-489a-adee-2727dafecca7",
+			"name": "Update Broker Invalid",
+			"url": "http://localhost:8080/Broker-1.0/resource/broker/update",
+			"time": 6,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				6
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "00d6f18f-ee4c-4b3d-b2ba-6324a531ea09",
+			"name": "Broker: brokerName title too short",
+			"url": "http://localhost:8080/Broker-1.0/resource/broker/create",
+			"time": 18,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				18
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "e3e8ec17-499c-4a9b-bd5a-7d9fdc889d0b",
+			"name": "Broker: brokerName title too long",
+			"url": "http://localhost:8080/Broker-1.0/resource/broker/create?brokerID=0u9457685&brokerName=jhlksvkjhmksfgjnklc%20jnklasdvjnklasdvbjksdvbjksjnksdvjnklsvjnkasdvjnklsdfvjnklsdvjnklsvjlsdvjnlsdvjnklsdvjnklsdvjnlasdvjnksdvjnkasdvjnsdjnkdsjnksdvjnksdvjnksdvjnk",
+			"time": 12,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "63261b32-2983-4d15-8270-9eb81e1fef1e",
+			"name": "Broker: brokerID",
+			"url": "http://localhost:8080/Broker-1.0/resource/broker/create",
+			"time": 45,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				45
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "82da9d3e-c4f9-4953-858d-2753101525fe",
+			"name": "Broker: brokerID Invalid",
+			"url": "http://localhost:8080/Broker-1.0/resource/broker/create",
+			"time": 8,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "fdd9e12a-9cab-401b-9c90-8fb87f6405b6",
+			"name": "Aktien: isin",
+			"url": "http://localhost:8080/Broker-1.0/resource/Aktien/create",
+			"time": 22,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status test": false
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				22
+			],
+			"allTests": [
+				{
+					"Status test": false
+				}
+			]
+		},
+		{
+			"id": "9456a6c5-eec8-46c3-ab0e-ad05c3042260",
+			"name": "Aktien: isin too long",
+			"url": "http://localhost:8080/Broker-1.0/resource/Aktien/create",
+			"time": 16,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status test": false
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				16
+			],
+			"allTests": [
+				{
+					"Status test": false
+				}
+			]
+		},
+		{
+			"id": "a1da992c-ac85-41f7-83af-f688e35b3dcc",
+			"name": "Aktien: isin too short",
+			"url": "http://localhost:8080/Broker-1.0/resource/Aktien/create",
+			"time": 6,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status test": false
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status test": false
+				}
+			]
+		},
+		{
+			"id": "057893c4-688b-46ea-ab89-e081935e91ad",
+			"name": "Update Aktien",
+			"url": "http://localhost:8080/Broker-1.0/resource/aktien/update",
+			"time": 13,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				13
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "92aa3ab0-6dbc-4fa6-81b2-ba8488ff6ab5",
+			"name": "Update Aktien invalid",
+			"url": "http://localhost:8080/Broker-1.0/resource/aktien/update",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				6
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "71c17e0b-9d79-49c6-a3fe-41c320b8a399",
+			"name": "Login",
+			"url": "http://localhost:8080/Broker-1.0/resource/user/login",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "ee7f963b-06a2-4d11-a340-6369b42b6add",
+			"name": "Login invalid password",
+			"url": "http://localhost:8080/Broker-1.0/resource/user/login",
+			"time": 9,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status test": false
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status test": false
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 324,
+	"collection": {
+		"requests": [
+			{
+				"id": "30d28833-55c1-40dd-b731-bbdc42522d60",
+				"method": "DELETE"
+			},
+			{
+				"id": "5efc1809-223d-4620-8573-4bfeb605884b",
+				"method": "DELETE"
+			},
+			{
+				"id": "b2be7caa-0707-4150-8a6a-14cdf6aa5392",
+				"method": "DELETE"
+			},
+			{
+				"id": "67f7c1ae-0fe0-46a1-9443-4481fb67cf74",
+				"method": "DELETE"
+			},
+			{
+				"id": "a63937d5-aa11-4f44-acb1-e1ab186b78d8",
+				"method": "DELETE"
+			},
+			{
+				"id": "4b328e3f-bbf8-4a99-8ad5-d7b665bad046",
+				"method": "DELETE"
+			},
+			{
+				"id": "e021e7db-f1fb-47e5-bf9c-89525aa31b29",
+				"method": "POST"
+			},
+			{
+				"id": "92e2c3c4-74d8-4dce-822e-420fda2127e1",
+				"method": "POST"
+			},
+			{
+				"id": "60adbd27-5501-4d30-8687-c2cce9336904",
+				"method": "POST"
+			},
+			{
+				"id": "405faa08-a046-4422-8d42-f8538692f4ce",
+				"method": "POST"
+			},
+			{
+				"id": "7eccee0a-3b95-4f35-abb3-a9c63badc410",
+				"method": "PUT"
+			},
+			{
+				"id": "994a6a3a-4779-489a-adee-2727dafecca7",
+				"method": "PUT"
+			},
+			{
+				"id": "00d6f18f-ee4c-4b3d-b2ba-6324a531ea09",
+				"method": "POST"
+			},
+			{
+				"id": "e3e8ec17-499c-4a9b-bd5a-7d9fdc889d0b",
+				"method": "POST"
+			},
+			{
+				"id": "63261b32-2983-4d15-8270-9eb81e1fef1e",
+				"method": "POST"
+			},
+			{
+				"id": "82da9d3e-c4f9-4953-858d-2753101525fe",
+				"method": "POST"
+			},
+			{
+				"id": "fdd9e12a-9cab-401b-9c90-8fb87f6405b6",
+				"method": "POST"
+			},
+			{
+				"id": "9456a6c5-eec8-46c3-ab0e-ad05c3042260",
+				"method": "POST"
+			},
+			{
+				"id": "a1da992c-ac85-41f7-83af-f688e35b3dcc",
+				"method": "POST"
+			},
+			{
+				"id": "057893c4-688b-46ea-ab89-e081935e91ad",
+				"method": "PUT"
+			},
+			{
+				"id": "92aa3ab0-6dbc-4fa6-81b2-ba8488ff6ab5",
+				"method": "PUT"
+			},
+			{
+				"id": "71c17e0b-9d79-49c6-a3fe-41c320b8a399",
+				"method": "POST"
+			},
+			{
+				"id": "ee7f963b-06a2-4d11-a340-6369b42b6add",
+				"method": "POST"
+			}
+		]
+	}
+}

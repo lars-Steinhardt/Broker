@@ -13,36 +13,32 @@
 <nav id="nav">
     <span id="message" style="color: red;"></span>
 </nav>
-<h3>Aktien bearbeiten</h3>
+<h3>Aktie bearbeiten</h3>
 <form id="aktieneditForm" name="aktienedit">
     <table>
         <tr>
-            <td><label for="title">Aktientitel</label></td>
+            <td><label for="aktienID">aktienID</label></td>
             <td>
-                <input id="title" name="title" type="text" size="30" minlength="2" maxlength="30" required/>
-                <input id="aktienID" name="aktienID" type="hidden"/>
+                <input id="aktienID" name="aktienID" type="text" size="30" minlength="2" maxlength="30" required/>
+                <!--<input id="aktienID" name="aktienID" type="hidden"/>-->
             </td>
         </tr>
         <tr>
-            <td><label for="author">Autor</label></td>
-            <td><input id="author" name="author" type="text" size="30" minlength="5" maxlength="50" required/></td>
+            <td><label for="isin">isin</label></td>
+            <td><input id="isin" name="isin" type="text" size="30" minlength="5" maxlength="50" required/></td>
         </tr>
         <tr>
-            <td><label for="publisher">Verlag</label></td>
+            <<td><label for="brokerID">brokerID</label></td>
+            <td><input id="brokerID" name="brokerID" type="number" min="0.05" max="199.95" step="0.05"/></td>
+        </tr>
+        <tr>
+            <td><label for="kurs">kurs</label></td>
+            <td><input id="kurs" name="kurs" type="number" min="0.05" max="199.95" step="0.05"/></td>
+        </tr>
+        <tr>
+            <td><label for="volumen">Volumen</label></td>
             <td>
-                <select id="publisher" name="publisherID" required>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td><label for="price">Preis</label></td>
-            <td><input id="price" name="price" type="number" min="0.05" max="199.95" step="0.05"/></td>
-        </tr>
-        <tr>
-            <td><label for="isbn">ISBN</label></td>
-            <td>
-                <input id="isbn" name="isbn" type="pattern"
-                       pattern="(?=[0-9]{13}|[- 0-9]{17})97[89](-[0-9]{1,5}){3}-[0-9]"/>
+                <input id="volumen" name="volumen" type="pattern" min="0.05" max="199.95" step="0.05"/>
             </td>
         </tr>
     </table>

@@ -1,0 +1,21 @@
+[ {
+  "broker" : {
+    "brokerID" : "06fc334d-7b02-434f-9222-6544d30d8832",
+    "brokerName" : "DAW Books"
+  },
+  "aktienID" : "789cc4a5-8bfd-4e24-85c1-ecf6b9819698",
+  "isin" : "Alex DD or Else",
+  "kurs" : 433,
+  "volumen" : 75647,
+  "brokerID" : "06fc334d-7b02-434f-9222-6544d30d8832"
+}, {
+  "broker" : {
+    "brokerID" : "06fc334d-7b02-434f-9222-6544d30d8832",
+    "brokerName" : "DAW Books"
+  },
+  "aktienID" : "789cc4a5-8bfd-4e24-85c1-ecf6b9819698",
+  "isin" : "Alex DD or Else",
+  "kurs" : 433,
+  "volumen" : 75647,
+  "brokerID" : "06fc334d-7b02-434f-9222-6544d30d8832"
+} ]

@@ -23,7 +23,6 @@ public class Config extends Application {
 
     /**
      * define all provider classes
-     *
      * @return set of classes@JsonIgnore
      */
     @Override
@@ -41,6 +40,7 @@ public class Config extends Application {
      * @param property the key of the property to be read
      * @return the value of the property
      */
+
     public static String getProperty(String property) {
         if (Config.properties == null) {
             setProperties(new Properties());

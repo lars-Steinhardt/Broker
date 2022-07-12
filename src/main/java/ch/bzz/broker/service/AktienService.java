@@ -30,8 +30,17 @@ public class AktienService {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listAktien(){
+    public Response listAktien(
+        @CookieParam("userRole") String userRole
+        ) {
         List<Aktien> aktienList = DataHandler.readAllAktien();
+        int httpStatus;
+        if (userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+        } else {
+            httpStatus = 200;
+            aktienList = DataHandler.readAllAktien();
+        }
         return  Response
                 .status(200)
                 .entity(aktienList)
@@ -49,12 +58,16 @@ public class AktienService {
     public Response readAktien(
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-            @QueryParam("aktienID") String aktienID
+            @QueryParam("aktienID") String aktienID,
+            @CookieParam("userRole") String userRole
     ) {
-        int httpStatus = 200;
-        Aktien aktien = DataHandler.readAktienByID(aktienID);
-        if (aktien == null) {
-            httpStatus = 410;
+        int httpStatus;
+        Aktien aktien = null;
+        if (userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+        } else {
+            httpStatus = 200;
+            aktien = DataHandler.readAktienByID(aktienID);
         }
         return Response
                 .status(httpStatus)
@@ -76,12 +89,18 @@ public class AktienService {
             @Valid @BeanParam Aktien aktien,
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-            @FormParam("brokerID")String brokerID
+            @FormParam("brokerID")String brokerID,
+            @CookieParam("userRole") String userRole
     ){
+        int httpStatus = 200;
+        if (userRole == null || !userRole.equals("admin")) {
+            httpStatus = 403;
+        } else {
         aktien.setBrokerID(brokerID);
+        }
         DataHandler.insertAktien(aktien);
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity("")
                 .build();
     }
@@ -97,12 +116,15 @@ public class AktienService {
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateAktien(
             @Valid @BeanParam Aktien aktien,
-            @FormParam("brokerID")String brokerID
+            @FormParam("brokerID")String brokerID,
+            @CookieParam("userRole") String userRole
 
     ) {
         int httpStatus = 200;
         Aktien oldAktien = DataHandler.readAktienByID(aktien.getAktienID());
-        if (oldAktien != null) {
+        if (userRole == null || !userRole.equals("admin")) {
+            httpStatus = 403;
+        }else if (oldAktien != null) {
             oldAktien.setAktienID(aktien.getAktienID());
             oldAktien.setIsin(aktien.getIsin());
             oldAktien.setBrokerID(aktien.getBrokerID());
@@ -130,10 +152,13 @@ public class AktienService {
     public Response deleteAktien(
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-            @QueryParam("aktienID") String aktienID
+            @QueryParam("aktienID") String aktienID,
+            @CookieParam("userRole") String userRole
     ) {
         int httpStatus = 200;
-        if (!DataHandler.deleteAktien(aktienID)) {
+        if (userRole == null || !userRole.equals("admin")) {
+            httpStatus = 403;
+        } else if (!DataHandler.deleteAktien(aktienID)) {
             httpStatus = 410;
         }
         return Response

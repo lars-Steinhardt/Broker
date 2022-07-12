@@ -29,8 +29,17 @@ public class FondService {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listFonds(){
+    public Response listFonds(
+            @CookieParam("userRole") String userRole
+    ){
         List<Fond> fondList = DataHandler.readAllFonds();
+        int httpStatus;
+        if (userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+        } else {
+            httpStatus = 200;
+            fondList = DataHandler.readAllFonds();
+        }
         return  Response
                 .status(200)
                 .entity(fondList)
@@ -49,12 +58,16 @@ public class FondService {
     public Response readFond(
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-            @QueryParam("fondID") String fondID
+            @QueryParam("fondID") String fondID,
+            @CookieParam("userRole") String userRole
     ) {
-        int httpStatus = 200;
-        Fond fond = DataHandler.readFondByID(fondID);
-        if (fond == null) {
-            httpStatus = 410;
+        int httpStatus;
+        Fond fond = null;
+        if (userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+        } else {
+            httpStatus = 200;
+            fond = DataHandler.readFondByID(fondID);
         }
         return Response
                 .status(httpStatus)
@@ -75,14 +88,18 @@ public class FondService {
             @Valid @BeanParam Fond fond,
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-            @FormParam("brokerID")String brokerID
-
+            @FormParam("brokerID")String brokerID,
+            @CookieParam("userRole") String userRole
             ){
-
-        fond.setBrokerID(brokerID);
+        int httpStatus = 200;
+        if (userRole == null || !userRole.equals("admin")) {
+            httpStatus = 403;
+        } else {
+            fond.setBrokerID(brokerID);
+        }
         DataHandler.insertFond(fond);
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity("")
                 .build();
     }
@@ -98,11 +115,14 @@ public class FondService {
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateFond(
             @Valid @BeanParam Fond fond,
-            @FormParam("brokerID")String brokerID
+            @FormParam("brokerID")String brokerID,
+            @CookieParam("userRole") String userRole
     ) {
         int httpStatus = 200;
         Fond oldFond = DataHandler.readFondByID(fond.getFondID());
-        if (oldFond != null) {
+        if (userRole == null || !userRole.equals("admin")) {
+            httpStatus = 403;
+        }else if (oldFond != null) {
             oldFond.setFondID(fond.getFondID());
             oldFond.setIsin(fond.getIsin());
             oldFond.setBrokerID(fond.getBrokerID());
@@ -130,10 +150,13 @@ public class FondService {
     public Response deleteFond(
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-            @QueryParam("fondID") String fondID
+            @QueryParam("fondID") String fondID,
+            @CookieParam("userRole") String userRole
     ) {
         int httpStatus = 200;
-        if (!DataHandler.deleteFond(fondID)) {
+        if (userRole == null || !userRole.equals("admin")) {
+            httpStatus = 403;
+        } else if (!DataHandler.deleteFond(fondID)) {
             httpStatus = 410;
         }
         return Response

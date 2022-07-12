@@ -31,10 +31,19 @@ public class BrokerService {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listBrokers() {
-        List<Broker> brokerList = DataHandler.readAllBrokers();
+    public Response listBrokers(
+            @CookieParam("userRole") String userRole
+    ) {
+        List<Broker> brokerList = null;
+        int httpStatus;
+        if (userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+        } else {
+            httpStatus = 200;
+            brokerList = DataHandler.readAllBrokers();
+        }
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity(brokerList)
                 .build();
     }
@@ -51,12 +60,16 @@ public class BrokerService {
     public Response readBroker(
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-            @QueryParam("brokerID") String brokerID
+            @QueryParam("brokerID") String brokerID,
+            @CookieParam("userRole") String userRole
     ) {
-        int httpStatus = 200;
-        Broker broker = DataHandler.readBrokerByID(brokerID);
-        if (broker == null) {
-            httpStatus = 410;
+        int httpStatus;
+        Broker broker = null;
+        if (userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+        } else {
+            httpStatus = 200;
+            broker = DataHandler.readBrokerByID(brokerID);
         }
         return Response
                 .status(httpStatus)
@@ -77,14 +90,19 @@ public class BrokerService {
             @Valid @BeanParam Broker broker,
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-            @FormParam("brokerID") String brokerID
+            @FormParam("brokerID") String brokerID,
+            @CookieParam("userRole") String userRole
     ) {
-
+        int httpStatus = 200;
+        if (userRole == null || !userRole.equals("admin")) {
+            httpStatus = 403;
+        } else {
         broker.setBrokerID(brokerID);
+        }
 
         DataHandler.insertBroker(broker);
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity("")
                 .build();
     }
@@ -100,11 +118,14 @@ public class BrokerService {
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateBroker(
             @Valid @BeanParam Broker broker,
-            @FormParam("brokerID") String brokerID
+            @FormParam("brokerID") String brokerID,
+            @CookieParam("userRole") String userRole
     ) {
         int httpStatus = 200;
         Broker oldBroker = DataHandler.readBrokerByID(broker.getBrokerID());
-        if (oldBroker != null) {
+        if (userRole == null || !userRole.equals("admin")) {
+            httpStatus = 403;
+        } else if (oldBroker != null) {
             oldBroker.setBrokerName(broker.getBrokerName());
 
             DataHandler.updateBroker();
@@ -127,10 +148,13 @@ public class BrokerService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteBroker(
-            @QueryParam("brokerID") String brokerID
+            @QueryParam("brokerID") String brokerID,
+            @CookieParam("userRole") String userRole
     ) {
         int httpStatus = 200;
-        if (!DataHandler.deleteBroker(brokerID)) {
+        if (userRole == null || !userRole.equals("admin")) {
+            httpStatus = 403;
+        } else if (!DataHandler.deleteBroker(brokerID)) {
             httpStatus = 410;
         }
         return Response
